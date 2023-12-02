@@ -9,23 +9,12 @@ import SwiftUI
 
 struct ContentView: View {
     @State var userText = "hello world"
-    @State var capMode = 1
     
     var body: some View {
         VStack {
             Spacer()
-            if capMode == 1  {
-                Text(userText.uppercased()).font(.largeTitle).foregroundStyle(.red)
+            Text(userText).font(.largeTitle).foregroundStyle(.red)
 
-            }
-            if capMode == 2  {
-                Text(userText.capitalized).font(.largeTitle).foregroundStyle(.red)
-
-            }
-            if capMode == 3  {
-                Text(userText.lowercased()).font(.largeTitle).foregroundStyle(.red)
-
-            }
             Spacer()
             Button(action: {
                 print("orange")
@@ -37,19 +26,19 @@ struct ContentView: View {
             HStack {
                 Button(action: {
                     print("red")
-                    capMode = 1
+                    userText = userText.uppercased()
                 }) {
                     CustomButtonView(title: "ALL CAPS", color: .red)
                 }
                 Button(action: {
                     print("green")
-                    capMode = 2
+                    userText = userText.capitalized
                 }) {
                     CustomButtonView(title: "First Letter", color: .green)
                 }
                 Button(action: {
                     print("blue")
-                    capMode = 3
+                    userText = userText.lowercased()
                 }) {
                     CustomButtonView(title: "lowercase", color: .blue)
                 }
@@ -58,7 +47,6 @@ struct ContentView: View {
             .padding()
 
             TextField("Enter text here", text: $userText).padding(.vertical)
-
         }
     }
 }
