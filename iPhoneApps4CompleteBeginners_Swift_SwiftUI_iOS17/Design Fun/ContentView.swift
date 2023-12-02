@@ -5,35 +5,25 @@
 //  Created by Youngmin Kim on 11/25/23.
 //
 
-// Make an HStack with two circles and a rectangle
+// Make an App with an add and remove button for the counter
 
 import SwiftUI
 
 struct ContentView: View {
+    @State var count = 0
     var body: some View {
         VStack {
-            Spacer()
-            HStack {
-                Spacer()
-                ZStack {
-                    Text("🎮")
-                        .font(.largeTitle)
-                    Text("Sold Out")
-                        .foregroundStyle(.red)
-                        .rotationEffect(.degrees(-15))
-
-                }
-                Spacer()
-                Text("🛳️")
-                    .font(.largeTitle)
-                Spacer()
-                Text("📱")
-                    .font(.largeTitle)
-                Spacer()
+            Text("People: \(count)").font(.largeTitle).padding()
+            Button("Increase") {
+                count += 1
+                print("Hello! \(count)")
+            }.padding()
+            
+            Button("Decrease") {
+                count -= 1
+                
             }
-            Spacer()
-            Text("🏪")
-                .font(.largeTitle)
+
         }
     }
 }
@@ -41,10 +31,3 @@ struct ContentView: View {
 #Preview {
     ContentView()
 }
-//Text("Tap me")
-//    .font(.largeTitle)
-//    .padding()
-//    .background(Color.green)
-//    .foregroundStyle(.white)
-//    .clipShape(RoundedRectangle(cornerRadius: 20))
-//    .grayscale(0.3)
